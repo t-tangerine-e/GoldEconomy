@@ -1,0 +1,22 @@
+name: GoldEconomy
+version: '${project.version}'
+main: org.davideh.goldeconomy.GoldEconomy
+api-version: '1.20'
+load: STARTUP
+commands:
+  pay:
+    description: Pay user
+    usage: /pay <player> <amount> <coinType>
+    #permission: GoldEconomy.payCommandPermission
+
+  balance:
+    description: Check your balance
+    aliases: [ bal ]
+    usage: /balance
+    #permission: GoldEconomy.balanceCommandPermission
+
+  baltop:
+    description: retrive most richest users in the server
+    usage: /baltop
+    #permission: GoldEconomy.baltopCommandPermission
+

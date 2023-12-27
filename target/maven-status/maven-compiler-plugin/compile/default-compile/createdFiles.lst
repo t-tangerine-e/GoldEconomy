@@ -1,0 +1,8 @@
+org\davideh\goldeconomy\listeners\JoinListener.class
+org\davideh\goldeconomy\Setup.class
+org\davideh\goldeconomy\commands\BaltopCommand.class
+org\davideh\goldeconomy\GoldEconomy.class
+org\davideh\goldeconomy\utils\Utils.class
+org\davideh\goldeconomy\commands\PayCommand.class
+org\davideh\goldeconomy\commands\BalanceCommand.class
+org\davideh\goldeconomy\database\Handler.class
