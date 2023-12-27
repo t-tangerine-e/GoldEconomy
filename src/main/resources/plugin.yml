@@ -1,8 +1,10 @@
 name: GoldEconomy
 version: '${project.version}'
 main: org.davideh.goldeconomy.GoldEconomy
+author: davide
 api-version: '1.20'
 load: STARTUP
+
 commands:
   pay:
     description: Pay user
