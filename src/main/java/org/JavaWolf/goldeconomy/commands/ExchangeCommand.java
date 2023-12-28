@@ -8,6 +8,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.text.DecimalFormat;
@@ -23,7 +24,7 @@ public class ExchangeCommand implements CommandExecutor, TabCompleter {
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender,@NotNull Command command,@NotNull String label,@NotNull String[] args) {
 
 
         String messages_path = new File(plugin.getDataFolder(), "messages.yml").getPath();
@@ -60,7 +61,7 @@ public class ExchangeCommand implements CommandExecutor, TabCompleter {
 
         double gold_value = plugin.getConfig().getInt("VALUE_OF_1_GOLD_IN_SILVER");
 
-        if (origin.toUpperCase().equals(exchange_dest.toUpperCase())){
+        if (origin.equalsIgnoreCase(exchange_dest.toUpperCase())){
             sender.sendMessage(Utils.GetMessage(messages_path, "OPERATION_NOT_PERMITTED"));
             return true;
         }
@@ -69,7 +70,7 @@ public class ExchangeCommand implements CommandExecutor, TabCompleter {
 
 
 
-        if (origin.toUpperCase().equals("GOLD")){
+        if (origin.equalsIgnoreCase("GOLD")){
             // to silver
             double silver = amount * gold_value;
 
@@ -88,7 +89,7 @@ public class ExchangeCommand implements CommandExecutor, TabCompleter {
 
             sender.sendMessage(Utils.GetMessage(messages_path, "EXCHANGE_SUCCES").replace("%amount%", String.valueOf(amount)).replace("%from%", origin).replace("%to%", exchange_dest).replace("%oc", "§6").replace("%dc%", "§7"));
 
-        } else if (origin.toUpperCase().equals("SILVER")){
+        } else if (origin.equalsIgnoreCase("SILVER")){
             // to gold
             double gold = amount / gold_value;
             DecimalFormat df = new DecimalFormat("#.##");
@@ -105,7 +106,7 @@ public class ExchangeCommand implements CommandExecutor, TabCompleter {
                 Handler.addCurrency(UUID, gold, "GOLD", databaseFile);
             }
             String oc, dc;
-            if (origin.toUpperCase().equals("GOLD")){
+            if (origin.equalsIgnoreCase("GOLD")){
 
                 oc = "§6";
                 dc = "§7";
@@ -135,7 +136,7 @@ public class ExchangeCommand implements CommandExecutor, TabCompleter {
     }
 
     @Override
-    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+    public List<String> onTabComplete(@NotNull CommandSender sender,@NotNull Command command,@NotNull String alias,@NotNull String[] args) {
         List<String> completions = new ArrayList<>();
 
         if (args.length == 1) {
