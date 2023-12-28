@@ -186,10 +186,11 @@ public final class GoldEconomy extends JavaPlugin {
 
         File Transactions = new File(dataFolder, "transactions.log");
         if (!Transactions.exists()) {
-            trans_file = false;
+
             try {
                 trans_file = Transactions.createNewFile();
             } catch (IOException e) {
+                trans_file = false;
                 throw new RuntimeException(e);
             }
             if (!trans_file){
