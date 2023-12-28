@@ -202,7 +202,7 @@ public final class GoldEconomy extends JavaPlugin {
 
 
 
-        }
+    }
 
     @Override
     public void onDisable() {

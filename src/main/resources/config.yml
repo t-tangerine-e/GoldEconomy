@@ -8,4 +8,7 @@ VALUE_OF_1_GOLD_IN_SILVER: 100                                                  
 
 EXCHANGE_CURRENCYES: true                                                                                   # if false command /exchange is disabled
 
+DEFAULT_VAULT_I_NTERACTION: "SILVER"                                                                        # vault is not created to support >1 currencyes, in order to connect with others
+                                                                                                            # plugin I suggest to use "SILVER" (u can use "GOLD" too) and enable exchange
+
 
