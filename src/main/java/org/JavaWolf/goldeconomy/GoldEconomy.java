@@ -190,7 +190,6 @@ public final class GoldEconomy extends JavaPlugin {
             try {
                 trans_file = Transactions.createNewFile();
             } catch (IOException e) {
-                trans_file = false;
                 throw new RuntimeException(e);
             }
             if (!trans_file){
