@@ -7,12 +7,12 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.JavaWolf.goldeconomy.database.AdminDB.addToBalance;
 import static org.JavaWolf.goldeconomy.database.Handler.removeFromBalance;
 import static org.JavaWolf.goldeconomy.utils.Utils.GetMessage;
 
@@ -25,7 +25,7 @@ public class EcoremoveCommand implements CommandExecutor, TabCompleter {
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender,@NotNull Command command,@NotNull String label,@NotNull String[] args) {
         String messages_path = new File(plugin.getDataFolder(), "messages.yml").getPath();
         String databaseFile = new File(plugin.getDataFolder(), "database.db").getPath();
         String coin;

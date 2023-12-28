@@ -2,8 +2,11 @@ package org.JavaWolf.goldeconomy.database;
 
 import java.sql.*;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Handler {
+    private static final Logger LOGGER = Logger.getLogger(Handler.class.getName());
     public static void createDB(String databaseFile) {
 
         try {
@@ -30,7 +33,7 @@ public class Handler {
 
         } catch (SQLException e) {
             System.out.println("Error creating database: " + e.getMessage());
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Error: " + e.getMessage(), e);
         }
     }
 
@@ -72,7 +75,7 @@ public class Handler {
             return count > 0;
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Error: " + e.getMessage(), e);
             return false;
         }
     }
@@ -101,7 +104,7 @@ public class Handler {
             connection.close();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Error: " + e.getMessage(), e);
         }
     }
 
@@ -173,7 +176,7 @@ public class Handler {
             connection.close();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Error: " + e.getMessage(), e);
         }
 
         return amount;
@@ -216,7 +219,7 @@ public class Handler {
             return true;
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Error: " + e.getMessage(), e);
             return false;
         }
     }
@@ -261,7 +264,7 @@ public class Handler {
             return sortedSums;
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Error: " + e.getMessage(), e);
         }
 
         return sumsMap;
@@ -289,7 +292,7 @@ public class Handler {
             connection.close();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Error: " + e.getMessage(), e);
         }
 
         return uuid;
@@ -317,7 +320,7 @@ public class Handler {
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Error: " + e.getMessage(), e);
         }
     }
     public static String getUsername(String databaseFile, String uuid) {
@@ -341,7 +344,7 @@ public class Handler {
             connection.close();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Error: " + e.getMessage(), e);
         }
 
         return username;

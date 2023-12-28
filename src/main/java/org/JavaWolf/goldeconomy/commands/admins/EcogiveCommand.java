@@ -7,6 +7,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ public class EcogiveCommand  implements CommandExecutor, TabCompleter {
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender , @NotNull Command command,@NotNull String label,@NotNull String[] args) {
         String messages_path = new File(plugin.getDataFolder(), "messages.yml").getPath();
         String databaseFile = new File(plugin.getDataFolder(), "database.db").getPath();
         String coin;
@@ -101,7 +102,7 @@ public class EcogiveCommand  implements CommandExecutor, TabCompleter {
     }
 
     @Override
-    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+    public List<String> onTabComplete(@NotNull CommandSender sender,@NotNull Command command,@NotNull String alias,@NotNull String[] args) {
         List<String> completions = new ArrayList<>();
 
         if (args.length == 1) {

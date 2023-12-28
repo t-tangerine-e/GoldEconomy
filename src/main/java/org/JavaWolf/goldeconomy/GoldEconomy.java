@@ -5,6 +5,7 @@ import org.JavaWolf.goldeconomy.commands.admins.EcogiveCommand;
 import org.JavaWolf.goldeconomy.commands.admins.EcoremoveCommand;
 import org.JavaWolf.goldeconomy.commands.admins.EcoresetCommand;
 import org.JavaWolf.goldeconomy.commands.admins.EcosetCommand;
+import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.JavaWolf.goldeconomy.commands.BalanceCommand;
 import org.JavaWolf.goldeconomy.commands.ExchangeCommand;
@@ -40,10 +41,28 @@ public final class GoldEconomy extends JavaPlugin {
         getServer().getPluginManager().registerEvents(joinListener, this);
 
         // register /pay command
-        getCommand("pay").setExecutor(new PayCommand(this));
+        PluginCommand payCommand = getCommand("pay");
+        if (payCommand != null) {
+            payCommand.setExecutor(new PayCommand(this));
+        } else {
+            getLogger().warning("The 'pay' command was not found!");
+
+        }
 
         // register /balance command
         getCommand("balance").setExecutor(new BalanceCommand(this));
+
+
+        PluginCommand balanceCommand = getCommand("balance");
+        if (balanceCommand != null) {
+            balanceCommand.setExecutor(new PayCommand(this));
+        } else {
+            getLogger().warning("The 'balance' command was not found!");
+
+        }
+
+
+
 
         // register /baltop command
         getCommand("baltop").setExecutor(new BaltopCommand(this));
