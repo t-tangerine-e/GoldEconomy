@@ -2,6 +2,7 @@ package org.JavaWolf.goldeconomy;
 
 import org.JavaWolf.goldeconomy.commands.BaltopCommand;
 import org.JavaWolf.goldeconomy.commands.admins.EcogiveCommand;
+import org.JavaWolf.goldeconomy.commands.admins.EcoremoveCommand;
 import org.JavaWolf.goldeconomy.commands.admins.EcoresetCommand;
 import org.JavaWolf.goldeconomy.commands.admins.EcosetCommand;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -66,7 +67,8 @@ public final class GoldEconomy extends JavaPlugin {
         // register /eco-give command
         getCommand("eco-give").setExecutor(new EcogiveCommand(this));
 
-        // eco-remove <player> <amount> <GOLD/SILVER>
+        // register /eco-remove command
+        getCommand("eco-remove").setExecutor(new EcoremoveCommand(this));
 
 
 

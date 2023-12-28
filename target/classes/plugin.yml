@@ -43,3 +43,8 @@ commands:
     description: admin command to add to player an amount of coins
     usage: /eco-give <player> <amount> <GOLD/SILVER>
     permission: GoldEconomy.eco-giveCommandPermission
+
+  eco-remove:
+    description: admin command to remove to player an amount of coins
+    usage: /eco-remove <player> <amount> <GOLD/SILVER>
+    permission: GoldEconomy.eco-removeCommandPermission

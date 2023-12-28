@@ -124,7 +124,7 @@ public class Handler {
             System.out.println("Failed to add currency: " + e.getMessage());
         }
     }
-    public static void removeFromBalance(String uuid, double amount, String currencyType, String databaseFile) {
+    public static boolean removeFromBalance(String uuid, double amount, String currencyType, String databaseFile) {
         String columnName = currencyType.equalsIgnoreCase("GOLD") ? "GOLD" : "SILVER";
 
         String sql = "UPDATE player_economy SET " + columnName + " = " + columnName + " - ? WHERE UUID = ?";
@@ -136,9 +136,12 @@ public class Handler {
             preparedStatement.setString(2, uuid);
 
             preparedStatement.executeUpdate();
+            return true;
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        return false;
     }
 
     public static double getPlayerBalance(String uuid, String coinType, String databaseFile) {

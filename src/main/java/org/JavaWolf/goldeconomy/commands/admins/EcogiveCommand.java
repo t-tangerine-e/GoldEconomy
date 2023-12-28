@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.JavaWolf.goldeconomy.database.AdminDB.addToBalance;
@@ -56,10 +57,6 @@ public class EcogiveCommand  implements CommandExecutor, TabCompleter {
             player.sendMessage(GetMessage(messages_path, "PLAYER_OFFLINE").replace("%player%", args[0]));
             return true;
         }
-        if (receiver.equals(sender)){
-            player.sendMessage(GetMessage(messages_path, "CHOSE_ANOTHER_PLAYER"));
-            return true;
-        }
 
         // get amount
         try {
@@ -104,8 +101,24 @@ public class EcogiveCommand  implements CommandExecutor, TabCompleter {
     }
 
     @Override
-    public List<String> onTabComplete(CommandSender commandSender, Command command, String s, String[] strings) {
-        return null;
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        List<String> completions = new ArrayList<>();
+
+        if (args.length == 1) {
+
+            for (Player onlinePlayer : sender.getServer().getOnlinePlayers()) {
+                completions.add(onlinePlayer.getName());
+            }
+        } else if (args.length == 2) {
+
+            completions.add("<amount>");
+        } else if (args.length == 3) {
+
+            completions.add("GOLD");
+            completions.add("SILVER");
+        }
+
+        return completions;
     }
 }
 
