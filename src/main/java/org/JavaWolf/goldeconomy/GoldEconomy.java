@@ -40,6 +40,14 @@ public final class GoldEconomy extends JavaPlugin {
         JoinListener joinListener = new JoinListener(this);
         getServer().getPluginManager().registerEvents(joinListener, this);
 
+
+
+
+
+
+        // old structure: getCommand("baltop").setExecutor(new BaltopCommand(this));
+        // may cause warning during compiling / pushing, those below are the same process without warns
+
         // register /pay command
         PluginCommand payCommand = getCommand("pay");
         if (payCommand != null) {
@@ -50,12 +58,11 @@ public final class GoldEconomy extends JavaPlugin {
         }
 
         // register /balance command
-        getCommand("balance").setExecutor(new BalanceCommand(this));
 
 
         PluginCommand balanceCommand = getCommand("balance");
         if (balanceCommand != null) {
-            balanceCommand.setExecutor(new PayCommand(this));
+            balanceCommand.setExecutor(new BalanceCommand(this));
         } else {
             getLogger().warning("The 'balance' command was not found!");
 
@@ -65,8 +72,18 @@ public final class GoldEconomy extends JavaPlugin {
 
 
         // register /baltop command
-        getCommand("baltop").setExecutor(new BaltopCommand(this));
 
+        PluginCommand baltopCommand = getCommand("baltop");
+        if (baltopCommand != null) {
+            baltopCommand.setExecutor(new BaltopCommand(this));
+        } else {
+            getLogger().warning("The 'baltop' command was not found!");
+
+        }
+
+
+
+        // if config has exchange true
         if (getConfig().getBoolean("EXCHANGE_CURRENCYES")){
 
             // register /exchange command
@@ -78,17 +95,42 @@ public final class GoldEconomy extends JavaPlugin {
         // admin part
 
         // register /eco-set command
-        getCommand("eco-set").setExecutor(new EcosetCommand(this));
+        PluginCommand eco_set = getCommand("eco-set");
+        if (eco_set != null) {
+            eco_set.setExecutor(new EcosetCommand(this));
+        } else {
+            getLogger().warning("The 'eco-set' command was not found!");
+
+        }
+
 
         // register /eco-reset command
-        getCommand("eco-reset").setExecutor(new EcoresetCommand(this));
+        PluginCommand eco_reset = getCommand("eco-reset");
+        if (eco_reset != null) {
+            eco_reset.setExecutor(new EcoresetCommand(this));
+        } else {
+            getLogger().warning("The 'eco-reset' command was not found!");
+
+        }
+
 
         // register /eco-give command
-        getCommand("eco-give").setExecutor(new EcogiveCommand(this));
+        PluginCommand eco_give = getCommand("eco-give");
+        if (eco_give != null) {
+            eco_give.setExecutor(new EcogiveCommand(this));
+        } else {
+            getLogger().warning("The 'eco-give' command was not found!");
+
+        }
 
         // register /eco-remove command
-        getCommand("eco-remove").setExecutor(new EcoremoveCommand(this));
+        PluginCommand eco_remove = getCommand("eco-remove");
+        if (eco_remove != null) {
+            eco_remove.setExecutor(new EcoremoveCommand(this));
+        } else {
+            getLogger().warning("The 'eco-remove' command was not found!");
 
+        }
 
 
     }
