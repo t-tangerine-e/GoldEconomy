@@ -3,15 +3,19 @@ CONSOLE_UNAVAIBLE: "This command can only be used by a player."                 
 
 PLAYER_OFFLINE: "Player %player% is not online."                                                          # reciver must be online
 
-INVALID_AMOUNT: "Invalid amount. Please enter a valid number."                                            # not a number in -> /pay <player> <amount>
+INVALID_AMOUNT: "§4Invalid amount. Please enter a valid number."                                          # not a number in -> /pay <player> <amount>
 
-INVALID_COIN_TYPE: "Invalid coin type. Use GOLD or SILVER."                                               # noone of them selecter
+INVALID_COIN_TYPE: "§4Invalid coin type. Use GOLD or SILVER."                                             # noone of them selecter
 
-CHOSE_ANOTHER_PLAYER: "You cant pay yourself, choose another player"                                      # sender cant be the reciver
+CHOSE_ANOTHER_PLAYER: "§4You cant pay yourself, choose another player"                                    # sender cant be the reciver
+
+INCORRECT_COMMAND: "§4You executed a command without necessary fields"                                    # in case of missing args
 
 NOT_ENOUGH_MONEY: "You don't have enough money to complete this transaction"                              # no enough money on sender's profile found
 
-DEFAULT_SET_COMPLETE: "Default payment method set to %currency%"                                          # %currency% will return the actual GOLD or SILVER user entered
+OPERATION_NOT_PERMITTED: "You cant run this operation."
+
+INVALID_PERMISSIONS: "You dont have the necessary perrmission, look in console for more details."         # print in console for the necessary permission
 
 
 # avaible placeholders for transactions messages:
@@ -21,7 +25,7 @@ TRANSACTION_SUCCESS_SENDER: "Successful sent %amount% of %cointype% to %reciver%
 
 TRANSACTION_SUCCESS_RECIVER: "%sender% just sent you %amount% of %cointype%"                              # let reciver know that he recived money by someone
 
-TRANSACTION_FAILURE_SENDER: "An issue occured during transaction, no money has been sent."                # if transaction fail, no money sent and sender will know that
+TRANSACTION_FAILURE_SENDER: "§4An issue occured during transaction, no money has been sent."              # if transaction fail, no money sent and sender will know that
 
 # avaible placeholders for balance messages:
 # %gold% %silver%  (if silver, gold is not avaible and viceversa)
@@ -37,3 +41,5 @@ BALANCE_SILVER: "§fYour Silver balance is:§7 %silver%"                        
 BALTOP_HEADER: " ---------- [BALTOP] ----------"                                                          # set custom header for leaderboard
 BALTOP_BODY:   " %player% -> %gold% : %silver%"                                                           # set custom appearance of each line of the body
 BALTOP_FOOTER: " -------------[ ]---------------"                                                         # set custom footer for leaderboard
+
+EXCHANGE_SUCCES: "Successful exchanged %amount% %oc% %from% in  %dc% %to%"                                # from : currency1,   to : currency2    %oc% origin color   %dc% dest color (automatically set gold or silver colors)
