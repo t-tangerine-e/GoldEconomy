@@ -146,6 +146,7 @@ public final class GoldEconomy extends JavaPlugin {
 
     @Override
     public void onLoad(){
+        boolean trans_file;
 
         File dataFolder = getDataFolder();
 
@@ -185,7 +186,7 @@ public final class GoldEconomy extends JavaPlugin {
 
         File Transactions = new File(dataFolder, "transactions.log");
         if (!Transactions.exists()) {
-            boolean trans_file = false;
+            trans_file = false;
             try {
                 trans_file = Transactions.createNewFile();
             } catch (IOException e) {
