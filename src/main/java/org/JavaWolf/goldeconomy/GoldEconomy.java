@@ -87,7 +87,15 @@ public final class GoldEconomy extends JavaPlugin {
         if (getConfig().getBoolean("EXCHANGE_CURRENCYES")){
 
             // register /exchange command
-            getCommand("exchange").setExecutor(new ExchangeCommand(this));
+
+            PluginCommand exchange = getCommand("eco-set");
+            if (exchange != null) {
+                exchange.setExecutor(new ExchangeCommand(this));
+            } else {
+                getLogger().warning("The 'exchange' command was not found!");
+
+            }
+
 
         }
 
@@ -143,7 +151,9 @@ public final class GoldEconomy extends JavaPlugin {
 
         // create data folder
         if (!getDataFolder().exists()) {
-            getDataFolder().mkdirs();
+            boolean status = getDataFolder().mkdirs();
+            if (!status)
+                getLogger().warning("errori during folder creation");
         }
 
         // create config.yml
@@ -175,11 +185,16 @@ public final class GoldEconomy extends JavaPlugin {
 
         File Transactions = new File(dataFolder, "transactions.log");
         if (!Transactions.exists()) {
+            boolean trans_file = false;
             try {
-                Transactions.createNewFile();
+                trans_file = Transactions.createNewFile();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+            if (!trans_file){
+                getLogger().warning("error during transaction file creation.");
+            }
+
         }
 
 

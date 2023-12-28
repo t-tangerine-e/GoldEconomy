@@ -103,7 +103,7 @@ public class EcoremoveCommand implements CommandExecutor, TabCompleter {
     }
 
     @Override
-    public List<String> onTabComplete(@NotNull CommandSender sender, Command command, String alias, String[] args) {
+    public List<String> onTabComplete(@NotNull CommandSender sender,@NotNull Command command,@NotNull String alias,@NotNull String[] args) {
         List<String> completions = new ArrayList<>();
 
         if (args.length == 1) {
