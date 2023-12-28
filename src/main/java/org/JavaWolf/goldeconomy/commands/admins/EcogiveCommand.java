@@ -79,11 +79,17 @@ public class EcogiveCommand  implements CommandExecutor, TabCompleter {
 
         }
 
+        String coin_color;
+        if (coin.equals("GOLD")) {
+            coin_color = "§6";
+        } else {
+            coin_color = "§7";
+        }
 
         boolean status = addToBalance(String.valueOf(receiver.getUniqueId()), amount, coin, databaseFile);
 
-        String success = "§aSuccessful added" + amount + " to " + receiver.getName() + "'s balance.";
-        String failure = "§4Failed to add "+ amount + " of " + coin + " to "  + receiver.getName() + "'s balance.";
+        String success = "§aSuccessful added §5" + amount + "§a " + coin_color + coin + "§a to §9" + receiver.getName() + "§a's balance.";
+        String failure = "§4Failed to add §5"+ amount + "§4 of " + coin_color + coin + "§4 to §9"  + receiver.getName() + "§4's balance.";
         if (status)
             player.sendMessage(success);
         else

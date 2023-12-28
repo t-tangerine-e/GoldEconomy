@@ -43,8 +43,18 @@ public class ExchangeCommand implements CommandExecutor, TabCompleter {
             return true;
         }
 
+        double amount;
+        String amount_s = args[0];
 
-        double amount = Double.parseDouble(args[0]);
+
+        try{
+            amount = Double.parseDouble(args[0]);
+        } catch (Exception e){
+            sender.sendMessage(Utils.GetMessage(messages_path, "INVALID_AMOUNT"));
+            return true;
+        }
+
+
         String origin = args[1];
         String exchange_dest = args[2];
 
@@ -94,8 +104,23 @@ public class ExchangeCommand implements CommandExecutor, TabCompleter {
                 Handler.removeFromBalance(UUID, amount, "SILVER", databaseFile);
                 Handler.addCurrency(UUID, gold, "GOLD", databaseFile);
             }
+            String oc, dc;
+            if (origin.toUpperCase().equals("GOLD")){
 
-            sender.sendMessage(Utils.GetMessage(messages_path, "EXCHANGE_SUCCES").replace("%amount%", String.valueOf(amount)).replace("%from%", origin).replace("%to%", exchange_dest).replace("%oc", "§7").replace("%dc%", "§6"));
+                oc = "§6";
+                dc = "§7";
+            } else {
+                oc = "§7";
+                dc = "§6";
+            }
+
+            sender.sendMessage(Utils.GetMessage(messages_path, "EXCHANGE_SUCCES")
+                                        .replace("%amount%", String.valueOf(amount))
+                                        .replace("%from%", origin)
+                                        .replace("%to%", exchange_dest)
+                                        .replace("%oc", oc)
+                                        .replace("%dc%", dc));
+            // EXCHANGE_SUCCES: "Successful exchanged %amount% %oc% %from% in  %dc% %to%"
 
         } else {
             sender.sendMessage(Utils.GetMessage(messages_path, "INVALID_COIN_TYPE"));
@@ -117,8 +142,12 @@ public class ExchangeCommand implements CommandExecutor, TabCompleter {
             completions.add("<amount>");
         } else if (args.length == 2) {
             completions.add("<source>");
+            completions.add("GOLD");
+            completions.add("SILVER");
         } else if (args.length == 3) {
             completions.add("<to>");
+            completions.add("GOLD");
+            completions.add("SILVER");
         }
 
         return completions;

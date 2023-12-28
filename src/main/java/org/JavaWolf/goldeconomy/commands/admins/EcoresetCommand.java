@@ -42,7 +42,7 @@ public class EcoresetCommand implements CommandExecutor, TabCompleter {
             return true;
         }
 
-        if (args.length < 3) {
+        if (args.length > 1) {
             sender.sendMessage("Usage: /eco-reset <player>");
             return true;
         }
@@ -59,8 +59,8 @@ public class EcoresetCommand implements CommandExecutor, TabCompleter {
 
         boolean status = resetBalance(String.valueOf(target.getUniqueId()), GOLD, SILVER, databaseFile);
 
-        String success = "§aSuccessful reset "+ target.getName() + " balance.";
-        String failure = "§4Failed to reset "+ target.getName() + " balance.";
+        String success = "§aSuccessful reset §5"+ target.getName() + "§a balance.";
+        String failure = "§4Failed to reset §5"+ target.getName() + "§4 balance.";
         if (status)
             player.sendMessage(success);
         else

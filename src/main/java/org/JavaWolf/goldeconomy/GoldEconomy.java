@@ -84,11 +84,11 @@ public final class GoldEconomy extends JavaPlugin {
 
 
         // if config has exchange true
-        if (getConfig().getBoolean("EXCHANGE_CURRENCYES")){
+        if (getConfig().getInt("EXCHANGE_CURRENCYES") == 1){
 
             // register /exchange command
 
-            PluginCommand exchange = getCommand("eco-set");
+            PluginCommand exchange = getCommand("exchange");
             if (exchange != null) {
                 exchange.setExecutor(new ExchangeCommand(this));
             } else {

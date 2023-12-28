@@ -79,12 +79,18 @@ public class EcoremoveCommand implements CommandExecutor, TabCompleter {
             return true;
 
         }
+        String coin_color;
+        if (coin.equals("GOLD")) {
+            coin_color = "§6";
+        } else {
+            coin_color = "§7";
+        }
 
 
         boolean status = removeFromBalance(String.valueOf(receiver.getUniqueId()), amount, coin, databaseFile);
 
-        String success = "§aSuccessful removed" + amount + " to " + receiver.getName() + "'s balance.";
-        String failure = "§4Failed to remove "+ amount + " of " + coin + " to "  + receiver.getName() + "'s balance.";
+        String success = "§aSuccessful removed §5" + amount + "§a " + coin_color + coin + "§a from §9" + receiver.getName() + "§a's balance.";
+        String failure = "§4Failed to remove §5"+ amount + "§4 of " + coin_color + coin + "§4 from §9"  + receiver.getName() + "§4's balance.";
         if (status)
             player.sendMessage(success);
         else
