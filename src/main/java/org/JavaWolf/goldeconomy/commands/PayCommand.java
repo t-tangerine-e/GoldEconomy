@@ -9,6 +9,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.time.LocalTime;
@@ -25,11 +26,11 @@ public class PayCommand implements CommandExecutor, TabCompleter {
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender,@NotNull Command command,@NotNull String label, String[] args) {
         String coin;
         Player receiver;
         double amount;
-        boolean transaction = false;
+        boolean transaction;
 
         String messages_path = new File(plugin.getDataFolder(), "messages.yml").getPath();
         String databaseFile = new File(plugin.getDataFolder(), "database.db").getPath();
@@ -133,7 +134,7 @@ public class PayCommand implements CommandExecutor, TabCompleter {
     //         /pay <player> <amount> <GOLD/SILVER>
 
     @Override
-    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+    public List<String> onTabComplete(@NotNull CommandSender sender,@NotNull Command command,@NotNull String alias, String[] args) {
         List<String> completions = new ArrayList<>();
 
         if (args.length == 1) {
