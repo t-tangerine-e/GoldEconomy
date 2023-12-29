@@ -10,7 +10,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.JavaWolf.goldeconomy.commands.BalanceCommand;
 import org.JavaWolf.goldeconomy.commands.ExchangeCommand;
 import org.JavaWolf.goldeconomy.commands.PayCommand;
-import org.JavaWolf.goldeconomy.listeners.JoinListener;
+import org.JavaWolf.goldeconomy.events.JoinListener;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,13 +20,19 @@ import java.util.Date;
 import static org.JavaWolf.goldeconomy.Setup.*;
 import static org.JavaWolf.goldeconomy.database.Handler.TouchDatabase;
 import static org.JavaWolf.goldeconomy.database.Handler.createDB;
-import static org.JavaWolf.goldeconomy.utils.Utils.SaveLog;
+import static org.JavaWolf.goldeconomy.utils.Utils.*;
 
 
 public final class GoldEconomy extends JavaPlugin {
 
     @Override
     public void onEnable() {
+
+        getLogger().info(getLogo());
+        getLogger().info(getInfo());
+
+
+
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
         String currentDate = dateFormat.format(new Date());

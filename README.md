@@ -44,8 +44,7 @@ Read [`LICENSE`](https://github.com/AnotherJJ/GoldEconomy/blob/master/LICENSE) f
 ---
 
 
-&copy; 2023 [AnotherJJ](https://github.com/AnotherJJ). All Rights Reserved.
+&nbsp;&nbsp;&nbsp;&copy; 2023 [AnotherJJ](https://github.com/AnotherJJ). All Rights Reserved.
 
-![Github-sponsors](https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#EA4AAA)
 
 ---
