@@ -1,2 +1,7 @@
 .idea/
-target/
+target/classes/
+target/generated-sources/
+target/maven-archiver/
+target/maven-status/
+target/GoldEconomy-1.0-shaded.jar
+target/original-GoldEconomy-1.0.jar
