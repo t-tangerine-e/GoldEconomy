@@ -28,16 +28,11 @@ public class EcoresetCommand implements CommandExecutor, TabCompleter {
         String databaseFile = new File(plugin.getDataFolder(), "database.db").getPath();
 
 
-        if (!(sender instanceof Player)) {
-            sender.sendMessage(GetMessage(messages_path, "CONSOLE_UNAVAIBLE"));
-            return true;
-        }
 
-        Player player = (Player) sender;
 
-        if (!player.hasPermission("GoldEconomy.eco-resetCommandPermission")){
-            player.sendMessage(GetMessage(messages_path, "INVALID_PERMISSIONS"));
-            plugin.getLogger().warning("user " + player.getName() + " tryed to executed /eco-reset command.");
+        if (!sender.hasPermission("GoldEconomy.eco-resetCommandPermission")){
+            sender.sendMessage(GetMessage(messages_path, "INVALID_PERMISSIONS"));
+            plugin.getLogger().warning("user " + sender.getName() + " tryed to executed /eco-reset command.");
             plugin.getLogger().warning("user dont dispose for permission: GoldEconomy.eco-resetCommandPermission");
             return true;
         }
@@ -62,9 +57,9 @@ public class EcoresetCommand implements CommandExecutor, TabCompleter {
         String success = "§aSuccessful reset §5"+ target.getName() + "§a balance.";
         String failure = "§4Failed to reset §5"+ target.getName() + "§4 balance.";
         if (status)
-            player.sendMessage(success);
+            sender.sendMessage(success);
         else
-            player.sendMessage(failure);
+            sender.sendMessage(failure);
 
 
 

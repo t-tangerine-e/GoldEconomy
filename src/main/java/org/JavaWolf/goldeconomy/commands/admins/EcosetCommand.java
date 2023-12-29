@@ -27,10 +27,7 @@ public class EcosetCommand implements CommandExecutor, TabCompleter {
         String messages_path = new File(plugin.getDataFolder(), "messages.yml").getPath();
         String databaseFile = new File(plugin.getDataFolder(), "database.db").getPath();
 
-        if (!(sender instanceof Player)) {
-            sender.sendMessage(GetMessage(messages_path, "CONSOLE_UNAVAIBLE"));
-            return true;
-        }
+
 
         Player player = (Player) sender;
 

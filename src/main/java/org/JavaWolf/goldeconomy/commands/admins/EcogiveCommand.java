@@ -33,16 +33,11 @@ public class EcogiveCommand  implements CommandExecutor, TabCompleter {
         double amount;
 
 
-        if (!(sender instanceof Player)) {
-            sender.sendMessage(GetMessage(messages_path, "CONSOLE_UNAVAIBLE"));
-            return true;
-        }
 
-        Player player = (Player) sender;
 
-        if (!player.hasPermission("GoldEconomy.eco-giveCommandPermission")){
-            player.sendMessage(GetMessage(messages_path, "INVALID_PERMISSIONS"));
-            plugin.getLogger().warning("user " + player.getName() + " tryed to executed /eco-give command.");
+        if (!sender.hasPermission("GoldEconomy.eco-giveCommandPermission")){
+            sender.sendMessage(GetMessage(messages_path, "INVALID_PERMISSIONS"));
+            plugin.getLogger().warning("user " + sender.getName() + " tryed to executed /eco-give command.");
             plugin.getLogger().warning("user dont dispose for permission: GoldEconomy.eco-giveCommandPermission");
             return true;
         }
@@ -55,7 +50,7 @@ public class EcogiveCommand  implements CommandExecutor, TabCompleter {
 
         receiver = Bukkit.getPlayer(args[0]);
         if (receiver == null || !receiver.isOnline()) {
-            player.sendMessage(GetMessage(messages_path, "PLAYER_OFFLINE").replace("%player%", args[0]));
+            sender.sendMessage(GetMessage(messages_path, "PLAYER_OFFLINE").replace("%player%", args[0]));
             return true;
         }
 
@@ -63,7 +58,7 @@ public class EcogiveCommand  implements CommandExecutor, TabCompleter {
         try {
             amount = Double.parseDouble(args[1]);
         } catch (NumberFormatException e) {
-            player.sendMessage(GetMessage(messages_path, "INVALID_AMOUNT"));
+            sender.sendMessage(GetMessage(messages_path, "INVALID_AMOUNT"));
             return true;
         }
 
@@ -74,7 +69,7 @@ public class EcogiveCommand  implements CommandExecutor, TabCompleter {
 
         if (!coin.equals("GOLD") && !coin.equals("SILVER")) {
 
-            player.sendMessage(GetMessage(messages_path, "INVALID_COIN_TYPE"));
+            sender.sendMessage(GetMessage(messages_path, "INVALID_COIN_TYPE"));
             return true;
 
         }
@@ -91,9 +86,9 @@ public class EcogiveCommand  implements CommandExecutor, TabCompleter {
         String success = "§aSuccessful added §5" + amount + "§a " + coin_color + coin + "§a to §9" + receiver.getName() + "§a's balance.";
         String failure = "§4Failed to add §5"+ amount + "§4 of " + coin_color + coin + "§4 to §9"  + receiver.getName() + "§4's balance.";
         if (status)
-            player.sendMessage(success);
+            sender.sendMessage(success);
         else
-            player.sendMessage(failure);
+            sender.sendMessage(failure);
 
 
 

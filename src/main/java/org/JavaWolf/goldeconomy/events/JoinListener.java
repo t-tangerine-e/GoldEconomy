@@ -1,4 +1,4 @@
-package org.JavaWolf.goldeconomy.listeners;
+package org.JavaWolf.goldeconomy.events;
 
 import org.JavaWolf.goldeconomy.database.Handler;
 import org.bukkit.entity.Player;
