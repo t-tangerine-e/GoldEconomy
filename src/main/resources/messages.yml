@@ -42,4 +42,10 @@ BALTOP_HEADER: " ---------- [BALTOP] ----------"                                
 BALTOP_BODY:   " %player% -> %gold% : %silver%"                                                           # set custom appearance of each line of the body
 BALTOP_FOOTER: " -------------[ ]---------------"                                                         # set custom footer for leaderboard
 
-EXCHANGE_SUCCES: "Successful exchanged %amount% %oc% %from%§f in  %dc% %to%"                              # from : currency1,   to : currency2    %oc% origin color   %dc% dest color (automatically set gold or silver colors)
+EXCHANGE_SUCCES: "Successful exchange, you changed %oc% %origin_amount% %origin_coin%§f to %tc% %target_amount% %target_coin%"
+                  # %oc% -> origin color code: use this to set gold or silver color (based on origin cointype)
+                  # %origin_amount% -> display the amount that user want to exchange
+                  # %origin_coin% -> SILVER or GOLD depending on user command
+                  # %tc% -> target color code
+                  #  //... as above
+EXCHANGE_RATE_LOW: "Exchange result is below 1 cent. Impossible to continue, put higher amount."

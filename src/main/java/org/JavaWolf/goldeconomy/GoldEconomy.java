@@ -30,7 +30,7 @@ public final class GoldEconomy extends JavaPlugin {
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
         String currentDate = dateFormat.format(new Date());
-        String log = "NEW LOGS: ------------------[ " +currentDate + "]------------------" ;
+        String log = "NEW LOGS: ------------------[ " +currentDate + " ]------------------" ;
 
         File Transactions = new File(getDataFolder(), "transactions.log");
         SaveLog(Transactions, log);
@@ -98,6 +98,13 @@ public final class GoldEconomy extends JavaPlugin {
 
 
         }
+
+
+
+        // /withdraw <amount> <GOLD/SILVER>
+        // /deposit <hand>
+
+
 
 
         // admin part

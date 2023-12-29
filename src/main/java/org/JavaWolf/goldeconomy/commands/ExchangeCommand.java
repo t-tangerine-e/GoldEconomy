@@ -45,7 +45,6 @@ public class ExchangeCommand implements CommandExecutor, TabCompleter {
         }
 
         double amount;
-        String amount_s = args[0];
 
 
         try{
@@ -87,11 +86,24 @@ public class ExchangeCommand implements CommandExecutor, TabCompleter {
 
 
 
-            sender.sendMessage(Utils.GetMessage(messages_path, "EXCHANGE_SUCCES").replace("%amount%", String.valueOf(amount)).replace("%from%", origin).replace("%to%", exchange_dest).replace("%oc", "§6").replace("%dc%", "§7"));
-
+            sender.sendMessage(Utils.GetMessage(messages_path, "EXCHANGE_SUCCES")
+                    .replace("%oc%", "§6")
+                    .replace("%origin_amount%", String.valueOf(amount))
+                    .replace("%origin_coin%", origin)
+                    .replace("%tc%", "§7")
+                    .replace("%target_amount%", String.valueOf(silver))
+                    .replace("%target_coin%", "SILVER")
+            );
         } else if (origin.equalsIgnoreCase("SILVER")){
             // to gold
             double gold = amount / gold_value;
+
+            if (gold < 0.01){
+                sender.sendMessage(Utils.GetMessage(messages_path, "EXCHANGE_RATE_LOW"));
+                return true;
+            }
+
+
             DecimalFormat df = new DecimalFormat("#.##");
             gold = Double.parseDouble(df.format(gold));
 
@@ -105,23 +117,16 @@ public class ExchangeCommand implements CommandExecutor, TabCompleter {
                 Handler.removeFromBalance(UUID, amount, "SILVER", databaseFile);
                 Handler.addCurrency(UUID, gold, "GOLD", databaseFile);
             }
-            String oc, dc;
-            if (origin.equalsIgnoreCase("GOLD")){
-
-                oc = "§6";
-                dc = "§7";
-            } else {
-                oc = "§7";
-                dc = "§6";
-            }
 
             sender.sendMessage(Utils.GetMessage(messages_path, "EXCHANGE_SUCCES")
-                                        .replace("%amount%", String.valueOf(amount))
-                                        .replace("%from%", origin)
-                                        .replace("%to%", exchange_dest)
-                                        .replace("%oc", oc)
-                                        .replace("%dc%", dc));
-            // EXCHANGE_SUCCES: "Successful exchanged %amount% %oc% %from% in  %dc% %to%"
+                            .replace("%oc%", "§7")
+                            .replace("%origin_amount%", String.valueOf(amount))
+                            .replace("%origin_coin%", origin)
+                            .replace("%tc%", "§6")
+                            .replace("%target_amount%", String.valueOf(gold))
+                            .replace("%target_coin%", "GOLD")
+            );
+
 
         } else {
             sender.sendMessage(Utils.GetMessage(messages_path, "INVALID_COIN_TYPE"));

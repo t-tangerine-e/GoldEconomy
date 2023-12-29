@@ -11,4 +11,4 @@ EXCHANGE_CURRENCYES: 1                                                          
 DEFAULT_VAULT_I_NTERACTION: "SILVER"                                                                        # vault is not created to support >1 currencyes, in order to connect with others
                                                                                                             # plugin I suggest to use "SILVER" (u can use "GOLD" too) and enable exchange
 
-
+WITHDRAWED_GOLD_INCOT_NAME: "GOLD "
