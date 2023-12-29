@@ -1,0 +1,52 @@
+name: GoldEconomy
+version: '1.0'
+main: org.JavaWolf.goldeconomy.GoldEconomy
+author: JavaWolf
+api-version: '1.20'
+load: STARTUP
+
+
+
+commands:
+  pay:
+    description: Pay user
+    usage: /pay <player> <amount> <coinType>
+    #permission: GoldEconomy.payCommandPermission
+
+  balance:
+    description: Check your balance
+    aliases: [ bal ]
+    usage: /balance
+    #permission: GoldEconomy.balanceCommandPermission
+
+  baltop:
+    description: retrive most richest users in the server
+    usage: /baltop
+    #permission: GoldEconomy.baltopCommandPermission
+
+  exchange:
+    description: exchange a currency to another
+    usage: /exchange <amount> <source> <destination>
+    #permission: GoldEconomy.exchangeCommandPermission
+
+
+  ############################# STAFF #############################
+  eco-set:
+    description: admin command to set amount of coin to player
+    usage: /eco-set <player> <amount> <coin>
+    permission: GoldEconomy.eco-setCommandPermission
+
+  eco-reset:
+    description: admin command to reset amount of coin to defaults
+    usage: /eco-reset <player>
+    permission: GoldEconomy.eco-resetCommandPermission
+
+  eco-give:
+    description: admin command to add to player an amount of coins
+    usage: /eco-give <player> <amount> <GOLD/SILVER>
+    permission: GoldEconomy.eco-giveCommandPermission
+
+  eco-remove:
+    description: admin command to remove to player an amount of coins
+    usage: /eco-remove <player> <amount> <GOLD/SILVER>
+    permission: GoldEconomy.eco-removeCommandPermission
