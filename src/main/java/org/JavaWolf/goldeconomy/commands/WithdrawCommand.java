@@ -147,11 +147,7 @@ public class WithdrawCommand implements CommandExecutor {
 
         double balance = getPlayerBalance( uuid,  coinType, databaseFile);
 
-        if (balance > amount){
-            return true;
-        } else {
-            return false;
-        }
+        return balance > amount;
 
     }
 

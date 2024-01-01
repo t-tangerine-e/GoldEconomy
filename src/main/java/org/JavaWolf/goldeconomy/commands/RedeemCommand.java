@@ -79,7 +79,7 @@ public class RedeemCommand implements CommandExecutor {
 
 
                 String[] NamesList = { name1, name2, name3, name4 };
-                String value = null;
+                String value;
 
                 for (String cointype : NamesList) {
                     if (Name.contains(cointype)) {
@@ -97,8 +97,13 @@ public class RedeemCommand implements CommandExecutor {
                         }
 
 
+                        // "You just redeemed %amount% of %cointype%"
+
                         if (status) {
-                            sender.sendMessage(Utils.GetMessage(messages_path, "ITEM_REDEEMED"));
+                            sender.sendMessage(Utils.GetMessage(messages_path, "ITEM_REDEEMED")
+                                                        .replace("%amount%", value)
+                                                        .replace("%cointype%", cointype)
+                            );
                         } else {
                             sender.sendMessage(Utils.GetMessage(messages_path, "REDEEM_ERROR"));
 
