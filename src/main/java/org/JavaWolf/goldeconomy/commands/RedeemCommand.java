@@ -8,6 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 
@@ -22,7 +23,7 @@ public class RedeemCommand implements CommandExecutor {
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender,@NotNull Command command,@NotNull String label, String[] args) {
 
         String messages_path = new File(plugin.getDataFolder(), "messages.yml").getPath();
         String databaseFile = new File(plugin.getDataFolder(), "database.db").getPath();
@@ -82,7 +83,7 @@ public class RedeemCommand implements CommandExecutor {
 
                 for (String cointype : NamesList) {
                     if (Name.contains(cointype)) {
-                        value = getValue(cointype, Name);
+                        value = getValue(cointype, Name).substring(2);
 
                         String uuid = player.getUniqueId().toString();
 

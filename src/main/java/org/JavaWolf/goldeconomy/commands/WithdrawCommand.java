@@ -12,9 +12,9 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
-import java.util.Arrays;
 import java.util.Collections;
 
 import static org.JavaWolf.goldeconomy.database.Handler.getPlayerBalance;
@@ -29,7 +29,7 @@ public class WithdrawCommand implements CommandExecutor {
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender,@NotNull Command command,@NotNull String label, String[] args) {
 
         String messages_path = new File(plugin.getDataFolder(), "messages.yml").getPath();
         String databaseFile = new File(plugin.getDataFolder(), "database.db").getPath();
@@ -65,7 +65,7 @@ public class WithdrawCommand implements CommandExecutor {
 
         String lore = plugin.getConfig().getString("WITHDRAW_ITEM_LORE");
 
-        String name = null;
+        String name;
         Player player = (Player) sender;
 
         if (coin.equalsIgnoreCase("GOLD")){
