@@ -6,6 +6,7 @@ import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
@@ -13,14 +14,17 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import static org.JavaWolf.goldeconomy.database.Handler.getPlayerBalance;
 import static org.JavaWolf.goldeconomy.database.Handler.removeFromBalance;
 
-public class WithdrawCommand implements CommandExecutor {
+public class WithdrawCommand implements CommandExecutor , TabCompleter {
 
     private final Plugin plugin;
 
@@ -123,13 +127,8 @@ public class WithdrawCommand implements CommandExecutor {
             color = plugin.getConfig().getString("SILVER_INGOT_NAME_COLOR");
         }
 
-        ItemMeta meta = null;
-        try {
-            meta = BAR.getItemMeta();
-        } catch (NullPointerException e){
-            System.out.print(e);
-        }
-       
+        ItemMeta meta = BAR.getItemMeta();
+
 
         if (meta != null) {
 
@@ -157,4 +156,18 @@ public class WithdrawCommand implements CommandExecutor {
     }
 
 
+
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        List<String> completions = new ArrayList<>();
+
+        if (args.length == 1) {
+            completions.add("<amount>");
+        } else if (args.length == 2) {
+            completions.add("GOLD");
+            completions.add("SILVER");
+        }
+
+        return completions;
+    }
 }

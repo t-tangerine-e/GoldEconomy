@@ -87,9 +87,16 @@ public class RedeemCommand implements CommandExecutor {
 
                         String uuid = player.getUniqueId().toString();
 
+                        String coin;
+                        if (Name.toUpperCase().contains("GOLD")){
+                            coin = "GOLD";
+                        } else  {
+                            coin = "SILVER";
+                        }
+
                         boolean status;
                         try {
-                            addCurrency( uuid , Double.parseDouble(value), cointype, databaseFile);
+                            addCurrency( uuid , Double.parseDouble(value), coin, databaseFile);
                             status = true;
                         } catch (Exception e) {
                             System.out.print(e);
@@ -97,13 +104,14 @@ public class RedeemCommand implements CommandExecutor {
                         }
 
 
+
+
                         // "You just redeemed %amount% of %cointype%"
 
                         if (status) {
-                            sender.sendMessage(Utils.GetMessage(messages_path, "ITEM_REDEEMED")
-                                                        .replace("%amount%", value)
-                                                        .replace("%cointype%", cointype)
-                            );
+                            String message = Utils.GetMessage(messages_path, "ITEM_REDEEMED");
+                            sender.sendMessage(message.replace("%amount%", value)
+                                                      .replace("%cointype%", coin) );
                         } else {
                             sender.sendMessage(Utils.GetMessage(messages_path, "REDEEM_ERROR"));
 
