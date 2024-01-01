@@ -98,8 +98,8 @@ public class RedeemCommand implements CommandExecutor {
                         try {
                             addCurrency( uuid , Double.parseDouble(value), coin, databaseFile);
                             status = true;
-                        } catch (Exception e) {
-                            System.out.print(e);
+                        } catch (Exception ex) {
+                            System.out.println(ex);
                             status = false;
                         }
 
