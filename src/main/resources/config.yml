@@ -6,9 +6,20 @@ DEFAULT_Silver : 50.00                                                          
 
 VALUE_OF_1_GOLD_IN_SILVER: 100                                                                              # used in baltop and in the excange (if enabled)
 
-EXCHANGE_CURRENCYES: 1                                                                                      # if 0 command /exchange is disabled
+EXCHANGE_CURRENCYES: true                                                                                   # true to enable /exchange
 
 DEFAULT_VAULT_I_NTERACTION: "SILVER"                                                                        # vault is not created to support >1 currencyes, in order to connect with others
                                                                                                             # plugin I suggest to use "SILVER" (u can use "GOLD" too) and enable exchange
 
-WITHDRAWED_GOLD_INCOT_NAME: "GOLD "
+WITHDRAW_&_REDEEM: true                                                                                     # enable or disable command to withdraw and redeem
+
+GOLD_INGOT_NAME_COLOR: "§6"
+SILVER_INGOT_NAME_COLOR: "§7"
+
+WITHDRAWED_GOLD_INGOT_NAME_SINGOLAR: "GOLD BAR"
+WITHDRAWED_GOLD_INGOT_NAME_PLURAL: "GOLD BARS"
+
+WITHDRAWED_SILVER_INGOT_NAME_SINGOLAR: "SILVER BAR"
+WITHDRAWED_SILVER_INGOT_NAME_PLURAL: "SILVER BARS"
+
+WITHDRAW_ITEM_LORE: "§1Redeem this item with command /redeem"

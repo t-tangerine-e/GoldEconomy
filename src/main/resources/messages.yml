@@ -49,3 +49,10 @@ EXCHANGE_SUCCES: "Successful exchange, you changed %oc% %origin_amount% %origin_
                   # %tc% -> target color code
                   #  //... as above
 EXCHANGE_RATE_LOW: "Exchange result is below 1 cent. Impossible to continue, put higher amount."
+
+
+WITHDRAW_LOW: "You can't withdraw less than 1 unit."
+NO_REDEEMABLE_ITEM: "You must handle a drawable item in your hand."
+
+ITEM_REDEEMED: "You just redeemed %amount% of %cointype%"
+REDEEM_ERROR: "An error occurred, ask for an admin to solve the problem"                                   # in case of error print this to user (all data will be fit in a log message)

@@ -1,15 +1,12 @@
 package org.JavaWolf.goldeconomy;
 
-import org.JavaWolf.goldeconomy.commands.BaltopCommand;
+import org.JavaWolf.goldeconomy.commands.*;
 import org.JavaWolf.goldeconomy.commands.admins.EcogiveCommand;
 import org.JavaWolf.goldeconomy.commands.admins.EcoremoveCommand;
 import org.JavaWolf.goldeconomy.commands.admins.EcoresetCommand;
 import org.JavaWolf.goldeconomy.commands.admins.EcosetCommand;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.JavaWolf.goldeconomy.commands.BalanceCommand;
-import org.JavaWolf.goldeconomy.commands.ExchangeCommand;
-import org.JavaWolf.goldeconomy.commands.PayCommand;
 import org.JavaWolf.goldeconomy.events.JoinListener;
 
 import java.io.File;
@@ -90,7 +87,7 @@ public final class GoldEconomy extends JavaPlugin {
 
 
         // if config has exchange true
-        if (getConfig().getInt("EXCHANGE_CURRENCYES") == 1){
+        if (getConfig().getBoolean("EXCHANGE_CURRENCYES")){
 
             // register /exchange command
 
@@ -99,6 +96,32 @@ public final class GoldEconomy extends JavaPlugin {
                 exchange.setExecutor(new ExchangeCommand(this));
             } else {
                 getLogger().warning("The 'exchange' command was not found!");
+
+            }
+
+
+        }
+
+        // if config has withdraw&redeem true
+        if (getConfig().getBoolean("WITHDRAW_&_REDEEM")){
+
+            // register /withdraw command
+
+            PluginCommand withdraw = getCommand("withdraw");
+            if (withdraw != null) {
+                withdraw.setExecutor(new WithdrawCommand(this));
+            } else {
+                getLogger().warning("The 'withdraw' command was not found!");
+
+            }
+
+            // register /redeem command
+
+            PluginCommand redeem = getCommand("redeem");
+            if (redeem != null) {
+                redeem.setExecutor(new RedeemCommand(this));
+            } else {
+                getLogger().warning("The 'redeem' command was not found!");
 
             }
 

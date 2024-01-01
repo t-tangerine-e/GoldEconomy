@@ -29,6 +29,17 @@ commands:
     usage: /exchange <amount> <source> <destination>
     #permission: GoldEconomy.exchangeCommandPermission
 
+  withdraw:
+    description: withdraw currency to user inventory
+    usage: /withdraw <amount> <SILVER / GOLD>
+    #permission: GoldEconomy.withdrawCommandPermission
+
+  redeem:
+    description: redeem currency from user hand
+    usage: /redeem
+    #permission: GoldEconomy.redeemCommandPermission
+
+
 
   ############################# STAFF #############################
   eco-set:
