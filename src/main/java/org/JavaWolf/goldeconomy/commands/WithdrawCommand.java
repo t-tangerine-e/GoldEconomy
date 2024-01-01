@@ -123,8 +123,13 @@ public class WithdrawCommand implements CommandExecutor {
             color = plugin.getConfig().getString("SILVER_INGOT_NAME_COLOR");
         }
 
-
-        ItemMeta meta = BAR.getItemMeta();
+        ItemMeta meta = null;
+        try {
+            meta = BAR.getItemMeta();
+        } catch (NullPointerException e){
+            System.out.print(e);
+        }
+       
 
         if (meta != null) {
 
