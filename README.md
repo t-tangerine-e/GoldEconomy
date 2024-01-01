@@ -46,7 +46,7 @@ Read [`LICENSE`](https://github.com/AnotherJJ/GoldEconomy/blob/master/LICENSE) f
 ---
 
 
-&nbsp;&nbsp;&nbsp;&copy; 2023 [AnotherJJ](https://github.com/AnotherJJ). All Rights Reserved.
+&nbsp;&nbsp;&nbsp;&copy; 2023 [Tangerine](https://github.com/t-tangerine-e). All Rights Reserved.
 
 
 ---
