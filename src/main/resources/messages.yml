@@ -54,5 +54,5 @@ EXCHANGE_RATE_LOW: "Exchange result is below 1 cent. Impossible to continue, put
 WITHDRAW_LOW: "You can't withdraw less than 1 unit."
 NO_REDEEMABLE_ITEM: "You must handle a drawable item in your hand."
 
-ITEM_REDEEMED: "You just redeemed %amount% %cointype%"
+ITEM_REDEEMED: "You just redeemed %amount% %cointype%"                                                     # message when redeem has success results
 REDEEM_ERROR: "An error occurred, ask for an admin to solve the problem"                                   # in case of error print this to user (all data will be fit in a log message)

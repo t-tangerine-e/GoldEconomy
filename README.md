@@ -10,7 +10,6 @@
 
 - [About](#description)
 - [Features](#features)
-- [Getting Started](#getting-started)
 - [API](#API)
 - [Support](#Support)
 - [License](#license)
@@ -25,9 +24,12 @@ Actual version don't support Vault or any other plugins, stay tuned for updates.
  - [x] Exchange between each currency (default enabled)
  - [x] Admin easy-editable database
  - [x] Set of admin commands to help gestion
+ - [x] withdraw and deposit system
 
- - [ ] Vault support (only for SILVER due vault limitations)
- - [ ] withdraw and deposit system
+### Next version features
+ - Vault support (only for SILVER due vault limitations)
+ - PlaceHolderAPI support for side tab or everything else
+
 
 ## API
 No API is avaible so use you may need to work on database, you can find some pre-made functions [here](https://github.com/AnotherJJ/GoldEconomy/blob/master/src/main/java/org/JavaWolf/goldeconomy/database/Handler.java).

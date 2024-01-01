@@ -29,23 +29,6 @@ public class AdminDB {
         return false;
     }
 
-    // copy of database.Handler.removeFromBalance()
-    public static void removeFromBalance(String uuid, double amount, String currencyType, String databaseFile) {
-        String columnName = currencyType.equalsIgnoreCase("GOLD") ? "GOLD" : "SILVER";
-
-        String sql = "UPDATE player_economy SET " + columnName + " = " + columnName + " - ? WHERE UUID = ?";
-
-        try (Connection connection = DriverManager.getConnection("jdbc:sqlite:" + databaseFile);
-             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-
-            preparedStatement.setDouble(1, amount);
-            preparedStatement.setString(2, uuid);
-
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
 
 
     public static boolean setBalance(String uuid, double amount, String currencyType, String databaseFile) {

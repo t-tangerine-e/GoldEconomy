@@ -85,7 +85,6 @@ public class ExchangeCommand implements CommandExecutor, TabCompleter {
             }
 
 
-
             sender.sendMessage(Utils.GetMessage(messages_path, "EXCHANGE_SUCCES")
                     .replace("%oc%", "§6")
                     .replace("%origin_amount%", String.valueOf(amount))

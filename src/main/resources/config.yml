@@ -22,4 +22,4 @@ WITHDRAWED_GOLD_INGOT_NAME_PLURAL: "GOLD BARS"
 WITHDRAWED_SILVER_INGOT_NAME_SINGOLAR: "SILVER BAR"
 WITHDRAWED_SILVER_INGOT_NAME_PLURAL: "SILVER BARS"
 
-WITHDRAW_ITEM_LORE: "§1Redeem this item with command /redeem"
+WITHDRAW_ITEM_LORE: "§1Redeem this item with command /redeem"                                               # use this in lore to tell user what to do

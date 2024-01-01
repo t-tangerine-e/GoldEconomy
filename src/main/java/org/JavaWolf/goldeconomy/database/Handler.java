@@ -112,7 +112,6 @@ public class Handler {
     // TODO : implement executeTransaction() instead addCurrency() and removeFromBalance() let them to admin op only
     public static void addCurrency(String uuid, double amount, String currencyType, String databaseFile) {
         String columnName = currencyType.equalsIgnoreCase("GOLD") ? "GOLD" : "SILVER";
-
         String sql = "UPDATE player_economy SET " + columnName + " = " + columnName + " + ? WHERE UUID = ?";
 
         try (Connection connection = DriverManager.getConnection("jdbc:sqlite:" + databaseFile);

@@ -40,7 +40,6 @@ commands:
     #permission: GoldEconomy.redeemCommandPermission
 
 
-
   ############################# STAFF #############################
   eco-set:
     description: admin command to set amount of coin to player

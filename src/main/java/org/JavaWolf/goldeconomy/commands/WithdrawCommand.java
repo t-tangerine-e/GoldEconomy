@@ -151,7 +151,6 @@ public class WithdrawCommand implements CommandExecutor , TabCompleter {
         double balance = getPlayerBalance( uuid,  coinType, databaseFile);
 
         return balance > amount;
-
     }
 
 

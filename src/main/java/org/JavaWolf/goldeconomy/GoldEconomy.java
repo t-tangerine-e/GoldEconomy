@@ -30,7 +30,6 @@ public final class GoldEconomy extends JavaPlugin {
 
 
 
-
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
         String currentDate = dateFormat.format(new Date());
         String log = "NEW LOGS: ------------------[ " +currentDate + " ]------------------" ;

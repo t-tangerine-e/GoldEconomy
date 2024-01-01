@@ -27,7 +27,6 @@ public class JoinListener implements Listener {
         if (!Handler.databasePlayerExist(username, databaseFile)){
             double gold = plugin.getConfig().getDouble("DEFAULT_Gold");
             double silver = plugin.getConfig().getDouble("DEFAULT_Silver");
-
             Handler.newPlayerRow(UUID, username , gold, silver, databaseFile);
         }
         // if uuid of username != uuid, save this new one

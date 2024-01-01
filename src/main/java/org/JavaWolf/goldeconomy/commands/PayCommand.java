@@ -37,7 +37,6 @@ public class PayCommand implements CommandExecutor, TabCompleter {
         // String message = GetMessage(filePath, key);
 
 
-
         // Phase 1: check command validity
         if (!(sender instanceof Player)) {
             sender.sendMessage(Utils.GetMessage(messages_path, "CONSOLE_UNAVAIBLE"));

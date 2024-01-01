@@ -5,6 +5,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 
@@ -20,7 +21,7 @@ public class BalanceCommand implements CommandExecutor {
         this.plugin = plugin;
     }
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender,@NotNull Command command,@NotNull String label, String[] args) {
         String coin;
         String messages_path = new File(plugin.getDataFolder(), "messages.yml").getPath();
         String databaseFile = new File(plugin.getDataFolder(), "database.db").getPath();
@@ -38,7 +39,6 @@ public class BalanceCommand implements CommandExecutor {
         }
 
         Player player = (Player) sender;
-
         // /balance SILVER | GOLD || BOTH (null)
         if (args.length > 0 && args[0] != null && !args[0].isEmpty()) {
             coin = args[0].toUpperCase();

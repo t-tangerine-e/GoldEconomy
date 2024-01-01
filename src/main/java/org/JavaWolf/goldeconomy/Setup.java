@@ -3,8 +3,6 @@ package org.JavaWolf.goldeconomy;
 import org.bukkit.plugin.Plugin;
 
 import java.io.*;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class Setup {
 
@@ -48,7 +46,6 @@ public class Setup {
         }
 
     }
-
 
 
 

@@ -4,6 +4,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.Plugin;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.util.Map;
@@ -22,14 +23,14 @@ public class BaltopCommand implements CommandExecutor {
 
 
     @Override
-    public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
+    public boolean onCommand(@NotNull CommandSender commandSender,@NotNull Command command,@NotNull String s, String[] strings) {
 
         String databaseFile = new File(plugin.getDataFolder(), "database.db").getPath();
         String messages_path = new File(plugin.getDataFolder(), "messages.yml").getPath();
 
         Map<String, Double> sortedSums = getSortedMap(databaseFile, plugin.getConfig().getInt("VALUE_OF_1_GOLD_IN_SILVER"));
 
-        StringBuilder baltop = new StringBuilder();
+
 
         String header = GetMessage(messages_path, "BALTOP_HEADER");
         String body = GetMessage(messages_path, "BALTOP_BODY");
@@ -48,12 +49,11 @@ public class BaltopCommand implements CommandExecutor {
             username = getUsername(databaseFile, entry.getKey()); // Assuming the method exists
             gold = String.valueOf(getPlayerBalance(entry.getKey(), "GOLD", databaseFile)); // Assuming the method exists
             silver = String.valueOf(getPlayerBalance(entry.getKey(), "SILVER", databaseFile)); // Assuming the method exists
-
             String formattedBody = body.replace("%player%", username)
                     .replace("%gold%", gold)
                     .replace("%silver%", silver);
 
-            message += "\n" + formattedBody;
+            message = message + "\n" + formattedBody;
 
             loopCounter++;
         }
